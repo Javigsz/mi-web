@@ -1,0 +1,34 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Formación{% endblock %}
+{% block headers %}
+<h1 style="color:#ffeee5;">Formación</h1>
+<span class="subheading" style="color:#ffeee5;" >Javier Guerrero Sánchez</span>
+{% endblock %}
+{% block background %}{% static 'core/img/home-bg2.jpg' %}{% endblock %}
+{% block content %}
+<main role="main">
+  <div class="container mb-4">
+    {% for language in object_list %}
+      <div class="row mt-3">
+        <div class="col-md-20">
+            <h2>{{language.title}}:</h2>
+            <p>{{language.tools|safe}}</p>
+            <h4>Cursos:</h4>
+            {% for course in language.courses.all %}
+                <p>- {{course.title}}. {{course.subtitle}}</p>
+                <div class="color:#ffeee5;">
+                    {% if course.link %}
+                        <p><a href={{course.link}}>Link</a></p>
+                    {% endif %}
+                    {% if course.certificate %}
+                        <p><a href={{course.certificate}}>Certificado</a></p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</main>
+{% endblock %}

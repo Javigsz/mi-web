@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Proyectos{% endblock %}
+{% block headers %}
+<h1 style="color:#ffeee5;">Proyectos</h1>
+<span class="subheading" style="color:#ffeee5;" >Javier Guerrero Sánchez</span>
+{% endblock %}
+{% block background %}{% static 'core/img/home-bg2.jpg' %}{% endblock %}
+{% block content %}
+<main role="main">
+  <div class="container mb-4">
+    {% for proyecto in object_list|dictsort:"title" reversed %}
+      <div class="row mt-3">
+        <div class="col-md-19">
+          <h2 class="mb-4">{{proyecto.title}}</h2>
+          {% if proyecto.image %}
+          <div class="col-lg-15 col-md-4 offset-lg--5 rounded float-left">
+            <img width="800"  src="{{proyecto.image.url}}" class="img-fluid profile-avatar">
+          </div>
+          {% endif %}
+          <div>
+            <p>{{proyecto.subtitle|striptags|safe|truncatechars:"200"}}</p>
+            <p><a href="{% url 'portfolio_detail' proyecto.title %}">Leer más</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</main>
+{% endblock %}

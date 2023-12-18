@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+
+{% block title %} Portada {% endblock %}
+
+{% block background %}{% load static %}{% static 'core/img/home-bg2.jpg' %}{% endblock %}
+
+{% block headers %}
+
+<h1 style="color:#ffeee5;">Javier Guerrero Sánchez</h1>
+<span class="subheading" style="color:#ffeee5;" >Ingeniero Informático</span>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+<div class="col-lg-3 col-md-4 offset-lg-1">
+    <img class="img-fluid avatar" src="{% static 'core/img/avatar2.jpg' %}" alt="">
+</div>
+<div class="col-lg-7 col-md-8">
+    <h2 class="section-heading">Javier Guerrero Sánchez</h2>   
+        <p>Mi nombre es Javier Guerrero. Nací en Córdoba, Andalucía.</p>
+        <p>Soy Ingeniero Informático graduado en la Escuela Politécnica Superior de Córdoba, Universidad de Córdoba. Mis principales intereses son la programación web, la visión artificial y machine learning.</p>
+</div>
+</div>
+
+{% endblock %}

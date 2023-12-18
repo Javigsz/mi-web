@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Contacto{% endblock %}
+{% block headers %}
+<h1 style="color:#ffeee5;">Contacto</h1>
+<span class="subheading" style="color:#ffeee5;" >Javier Guerrero Sánchez</span>
+{% endblock %}
+{% block background %}{% static 'core/img/home-bg2.jpg' %}{% endblock %}
+{% block content %}
+<main role="main">
+  <div class="container mb-4">
+  <h2 class="mb-4">Enlaces:</h2>
+    {% for link in object_list %}
+      <div class="row mt-3">
+        <div class="col-md-19 mx-auto text-center">
+            <b>{{link.name}}:</b>
+            <a href={{link.url}}>{{link.url}}</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</main>
+{% endblock %}
